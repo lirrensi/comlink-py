@@ -53,7 +53,7 @@ Suppose you have a worker script in a separate venv, possibly with conflicting d
 
 ```python
 import os
-from comlink import ChildWorker
+from comlink_ipc import ChildWorker
 
 # you most definitely want to set CWD as script to use relative paths
 # setting cwd from process may be unreliable
@@ -77,7 +77,7 @@ if __name__ == '__main__':
 Your main host script (can use a different venv!):
 
 ```python
-from comlink import ParentWorker
+from comlink_ipc import ParentWorker
 
 # Synchronous usage
 worker = ParentWorker(
@@ -103,7 +103,7 @@ Or fully async:
 
 ```python
 import asyncio
-from comlink import ParentWorker
+from comlink_ipc import ParentWorker
 
 async def main():
     worker = ParentWorker("some_folder/worker_script.py", "some_folder/venv/Scripts/python.exe")

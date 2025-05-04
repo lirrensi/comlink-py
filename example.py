@@ -1,6 +1,6 @@
 # example.py
 import asyncio
-from comlink import ParentWorker
+from comlink_ipc import ParentWorker
 
 # main script
 def main_sync():
@@ -53,7 +53,7 @@ async def main_async():
 # =====================================================
 # worker_script.py
 import os
-from comlink import ChildWorker
+from comlink_ipc import ChildWorker
 
 # you most definitely want to set CWD as script to use relative paths
 # setting cwd from process may be unreliable
