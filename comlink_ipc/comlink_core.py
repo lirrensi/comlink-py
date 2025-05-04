@@ -18,7 +18,7 @@ class RemoteCallError(Exception):
 # parent controller 
 class ParentWorker:
     def __init__(self, script_path, python_executable=None, thread_pool_size=10, auto_restart=False, max_restart_attempts=5):
-        self.APP_NAME = "comlink_py"
+        self.APP_NAME = "comlink_ipc"
         self.script_path = script_path
         self.script_name = script_path.split('/')[-1]
         self.executable = python_executable if python_executable else sys.executable
