@@ -40,7 +40,7 @@ Copy the `comlink` directory into your project, or install via pip (coming soon)
 Requires Python 3.5 or higher (for built-in asyncio support) with no additional dependencies.
 
 ```bash
-pip install git+https://github.com/YOUR_REPO/comlink-py.git
+pip install git+https://github.com/lirrensi/comlink-py.git
 ```
 
 ---
