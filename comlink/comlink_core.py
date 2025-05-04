@@ -20,6 +20,7 @@ class ParentWorker:
     def __init__(self, script_path, python_executable=None, thread_pool_size=10, auto_restart=False, max_restart_attempts=5):
         self.APP_NAME = "comlink_py"
         self.script_path = script_path
+        self.script_name = script_path.split('/')[-1]
         self.executable = python_executable if python_executable else sys.executable
         self.auto_restart = auto_restart
         self.max_restart_attempts = max_restart_attempts
@@ -179,9 +180,9 @@ class ParentWorker:
                         print(f"[Child STDOUT] {response.strip()}")
                 except json.JSONDecodeError:
                     # Not JSON, just regular output
-                    print(f"[Child STDOUT] {response.strip()}")
+                    print(f"[{self.script_name} STDOUT] {response.strip()}")
             except Exception as e:
-                print(f"Error reading response: {e}")
+                print(f"Error reading response from {self.script_name}: {e}")
                 # Check if we're still supposed to be running
                 if not self.running or self.process.poll() is not None:
                     break
@@ -193,9 +194,9 @@ class ParentWorker:
                 line = self.process.stderr.readline()
                 if not line:
                     break
-                print(f"[Child STDERR] {line.strip()}", file=sys.stderr)
+                print(f"[{self.script_name} STDERR] {line.strip()}", file=sys.stderr)
             except Exception as e:
-                print(f"Error reading stderr: {e}", file=sys.stderr)
+                print(f"Error reading stderr from {self.script_name}: {e}", file=sys.stderr)
                 if not self.running:
                     break
 
@@ -352,7 +353,7 @@ class ChildWorker:
 
     def list_functions(self):
         """List available callable public methods (excluding private and base ones)."""
-        excluded = set(dir(WorkerChild))  # Exclude inherited/internal methods
+        excluded = set(dir(ChildWorker))  # Exclude inherited/internal methods
         return [
             name for name in dir(self)
             if callable(getattr(self, name))
