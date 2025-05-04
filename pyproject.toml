@@ -1,0 +1,11 @@
+[project]
+name = "comlink_py"
+version = "0.3.0"
+description = "Simple IPC inspired by comlink.js"
+authors = [{ name = "lirrensi", email = "you@example.com" }]
+license = {text = "MIT"}
+dependencies = []
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
