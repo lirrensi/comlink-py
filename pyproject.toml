@@ -1,6 +1,6 @@
 [project]
 name = "comlink_ipc"
-version = "0.3.0"
+version = "0.4.0"
 description = "Simple IPC inspired by comlink.js"
 authors = [{ name = "lirrensi", email = "you@example.com" }]
 license = {text = "MIT"}

@@ -177,10 +177,10 @@ class ParentWorker:
                                     callback(data["__result__"], None)
                     else:
                         # Regular stdout output
-                        print(f"[Child STDOUT] {response.strip()}")
+                        print(f"[{self.script_name} STD_OUT]: {response.strip()}")
                 except json.JSONDecodeError:
                     # Not JSON, just regular output
-                    print(f"[{self.script_name} STDOUT] {response.strip()}")
+                    print(f"[{self.script_name} STD_OUT]: {response.strip()}")
             except Exception as e:
                 print(f"Error reading response from {self.script_name}: {e}")
                 # Check if we're still supposed to be running
@@ -194,7 +194,7 @@ class ParentWorker:
                 line = self.process.stderr.readline()
                 if not line:
                     break
-                print(f"[{self.script_name} STDERR] {line.strip()}", file=sys.stderr)
+                print(f"[{self.script_name} STD_ERR]: {line.strip()}", file=sys.stderr)
             except Exception as e:
                 print(f"Error reading stderr from {self.script_name}: {e}", file=sys.stderr)
                 if not self.running:
@@ -279,7 +279,7 @@ class ChildWorker:
     """Base class for creating IPC-enabled worker scripts."""
     
     def __init__(self):
-        self.APP_NAME = "comlink_py"
+        self.APP_NAME = "comlink_ipc"
         self._running = True
         # For CPU-bound operations in async functions
         self._thread_pool = concurrent.futures.ThreadPoolExecutor(max_workers=10)
