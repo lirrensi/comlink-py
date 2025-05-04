@@ -14,6 +14,7 @@ It lets you **spawn and control a Python worker process** (even from a different
 -   🦾 **Dead-simple call syntax**: Just import your worker as a Python object!
 -   🔬 Great for experimenting with models/tools that require different CUDA/drivers/Python versions on the same system.
 -   💡 Useful for mixed environments (Windows, Linux) in modular/monolithic codebases.
+-   💡 Useful so you do not to run servers to communicate if would be setting on network stack, and also can see print()s directly from your parent script - useful for debug
 
 ---
 
@@ -173,6 +174,12 @@ A: Yes! Uses pure Python subprocess. Use correct `python_executable` path for yo
 
 **Q: Can I have the child execute code asynchronously?**  
 A: Yes! Just make your method `async def`—parent can call via `.aproxy` or `.proxy` transparently.
+
+---
+
+## Not works?
+
+Take a look at [procbridge-python](https://github.com/gongzhang/procbridge-python)
 
 ---
 
