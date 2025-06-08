@@ -1,0 +1,19 @@
+{
+    "name": "comlink_py_node",
+    "version": "2.0.0",
+    "description": "small lib for easy interop between py / node | with various venvs and envs...",
+    "license": "ISC",
+    "author": "",
+    "type": "module",
+    "main": "index.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "msgpackr": "^1.11.4",
+        "zeromq": "^6.4.2"
+    },
+    "devDependencies": {
+        "@types/node": "^22.15.30"
+    }
+}

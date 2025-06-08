@@ -5,6 +5,12 @@ It lets you **spawn and control a Python worker process** (even from a different
 
 ---
 
+## Added v2 with ZeroMQ+msgpack as transport, now works interop with both Node | Py
+
+See `comlink_ipc_v2/examples`
+
+---
+
 ## Why use comlink-py?
 
 **comlink-py** solves a real pain for ML, data science, and plugin authors:
